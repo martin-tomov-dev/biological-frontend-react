@@ -1,10 +1,32 @@
-function LoginPage() {
+import React, { useEffect, useState } from "react";
+// import { useHistory } from "react-router-dom";
+import { authService } from "../services/auth";
+
+const LoginPage = () => {
+  const [userData, setUserData] = useState({
+    name: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let result;
+
+    result = authService.login(userData);
+    console.log(result);
+  };
+
   return (
     <section
-      className="gradient-form h-full bg-neutral-200 dark:bg-neutral-700"
+      className="gradient-form h-full"
       style={{
         height: "100vh",
-        background: "linear-gradient(to bottom, #b7eaff 0%, #94dfff 100%)",
+        backgroundImage: `url("./assets/login-page-background.jpg")`,
       }}
     >
       <div className="container h-full p-10 ml-auto mr-auto">
@@ -12,7 +34,7 @@ function LoginPage() {
           <div className="w-full">
             <div>
               <div className="g-0 lg:flex lg:flex-wrap justify-center">
-                <div className="px-4 md:px-0 lg:w-6/12 block rounded-lg bg-white shadow-lg dark:bg-neutral-800 px-4 md:px-0 lg:w-6/12 ">
+                <div className="px-4 opacity-70 md:px-0 lg:w-6/12 block rounded-lg bg-white shadow-lg dark:bg-neutral-800 px-4 md:px-0 lg:w-6/12 ">
                   <div className="md:mx-6 md:p-12">
                     <div className="text-center">
                       <img
@@ -24,12 +46,14 @@ function LoginPage() {
                         Biological Report
                       </h4>
                     </div>
-                    <form>
+                    <form action="" onSubmit={handleSubmit}>
                       <p className="mb-4">Please login to your account</p>
                       <div className="relative mb-4" data-te-input-wrapper-init>
                         <input
                           type="text"
-                          className="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                          onChange={handleChange}
+                          name="name"
+                          className="peer block pl-24 min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                           id="exampleFormControlInput1"
                           placeholder="Username"
                         />
@@ -43,7 +67,9 @@ function LoginPage() {
                       <div className="relative mb-4" data-te-input-wrapper-init>
                         <input
                           type="password"
-                          className="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                          onChange={handleChange}
+                          name="password"
+                          className="peer block pl-24 min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                           id="exampleFormControlInput11"
                           placeholder="Password"
                         />
@@ -57,7 +83,7 @@ function LoginPage() {
                       <div className="mb-12 pt-1 pb-1 text-center">
                         <button
                           className="mb-3 inline-block w-full rounded px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
-                          type="button"
+                          type="submit"
                           data-te-ripple-init
                           data-te-ripple-color="light"
                           style={{
@@ -93,6 +119,6 @@ function LoginPage() {
       </div>
     </section>
   );
-}
+};
 
 export default LoginPage;
