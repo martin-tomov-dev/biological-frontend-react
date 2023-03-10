@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { authService } from "../services/auth";
 
 const LoginPage = () => {
@@ -7,6 +7,8 @@ const LoginPage = () => {
     name: "",
     password: "",
   });
+  const [isError, setError] = useState({ isError: false });
+  let history = useNavigate();
 
   const handleChange = (e) => {
     setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
@@ -15,10 +17,14 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let result;
-
-    result = authService.login(userData);
-    console.log(result);
+    authService.Login(userData).then((res) => {
+      console.log(res);
+      if (res) {
+        history("/dashboard");
+      } else {
+        setError(true);
+      }
+    });
   };
 
   return (
@@ -109,6 +115,9 @@ const LoginPage = () => {
                           Register
                         </button>
                       </div>
+                      <p class="text-red-500">
+                        {isError ? "Wrong Username and Password" : ""}
+                      </p>
                     </form>
                   </div>
                 </div>

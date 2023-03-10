@@ -8,12 +8,13 @@ const config = {
   },
 };
 
-const login = async (userData) => {
+const Login = async (userData) => {
   const response = await axios.post(`${API_URL}/login`, userData, config);
   console.log(response.data);
+
   return response.data;
 };
 
 export const authService = {
-  login,
+  Login,
 };
