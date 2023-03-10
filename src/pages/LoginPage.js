@@ -14,18 +14,19 @@ const LoginPage = () => {
     setUserData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  async function handleSubmit(e) {
+    try {
+      e.preventDefault();
 
-    authService.Login(userData).then((res) => {
-      console.log(res);
-      if (res) {
+      await authService.Login(userData).then((res) => {
+        console.log(res);
         history("/dashboard");
-      } else {
-        setError(true);
-      }
-    });
-  };
+      });
+    } catch (err) {
+      // console.error(error);
+      setError({ isError: true });
+    }
+  }
 
   return (
     <section
@@ -115,8 +116,8 @@ const LoginPage = () => {
                           Register
                         </button>
                       </div>
-                      <p class="text-red-500">
-                        {isError ? "Wrong Username and Password" : ""}
+                      <p className="text-red-500">
+                        {isError.isError ? "Wrong Username and Password" : ""}
                       </p>
                     </form>
                   </div>
