@@ -50,7 +50,7 @@ const LoginPage = () => {
                         alt="logo"
                       />
                       <h4 className="mt-1 mb-12 pb-1 text-xl font-semibold">
-                        Biological Report
+                        EKOGEA Biological Monitoring
                       </h4>
                     </div>
                     <form action="" onSubmit={handleSubmit}>
