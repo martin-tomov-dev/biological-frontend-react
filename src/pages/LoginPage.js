@@ -20,7 +20,8 @@ const LoginPage = () => {
 
       await authService.Login(userData).then((res) => {
         console.log(res);
-        history("/dashboard");
+        localStorage.setItem("user", userData.name);
+        history(`/dashboard`);
       });
     } catch (err) {
       // console.error(error);
@@ -34,6 +35,7 @@ const LoginPage = () => {
       style={{
         height: "100vh",
         backgroundImage: `url("./assets/login-page-background.jpg")`,
+        marginTop: "116px",
       }}
     >
       <div className="container h-full p-10 ml-auto mr-auto">
