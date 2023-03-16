@@ -1,15 +1,15 @@
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
-import { useState } from "react";
+// import { useState } from "react";
 
 const WeeklyDataUpload = () => {
-  let [date, setDailyData] = useState({
-    date: Date.now(),
-  });
+  // let [date, setDailyData] = useState({
+  //   date: Date.now(),
+  // });
 
   const handleChange = (e) => {
-    setDailyData((data) => ({ ...data, [e.target.name]: e.target.value }));
-    console.log(e.target.value);
+    // setDailyData((data) => ({ ...data, [e.target.name]: e.target.value }));
+    // console.log(e.target.value);
   };
   return (
     <div className="bg-gray-50 dark:bg-gray-800">

@@ -25,7 +25,7 @@ const TableCell = (props) => {
           <td className="text-center py-3 px-1">{data.Vala}</td>
           <td className="text-center py-3 px-1">{data.IsoVALA}</td>
           <td className="text-center py-3 px-1">
-            <img className="w-6 h-6" src="/assets/pdf.png" />
+            <img className="w-6 h-6" src="/assets/pdf.png" alt="pdf" />
           </td>
         </tr>
       ))}

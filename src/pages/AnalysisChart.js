@@ -177,7 +177,7 @@ const AnalysisChart = () => {
                 <th className="py-3 px-1 text-center">VALA</th>
                 <th className="py-3 px-1 text-center">isoVALA</th>
                 <td className="py-3 px-1 text-center">
-                  <img className="w-6 h-6" src="/assets/pdf.png" />
+                  <img className="w-6 h-6" src="/assets/pdf.png" alt="pdf" />
                 </td>
               </tr>
             </thead>

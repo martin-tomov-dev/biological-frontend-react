@@ -16,7 +16,7 @@ const LoginPage = () => {
   };
 
   async function handleSubmit(e) {
-    if (userData.name == "admin" && userData.password == "123456") {
+    if (userData.name === "admin" && userData.password === "123456") {
       localStorage.setItem("user", userData.name);
       history("/dashboard");
     } else {

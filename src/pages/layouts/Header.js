@@ -5,7 +5,7 @@ const Header = () => {
   let history = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("user") == "") {
+    if (localStorage.getItem("user") === "") {
       console.log(1);
       history("/login");
     }
