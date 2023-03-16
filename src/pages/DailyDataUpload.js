@@ -2,13 +2,9 @@ import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
 
 const DailyDataUpload = () => {
-  let [data, setDailyData] = useState({
-    date: Date.now(),
-  });
-
   const handleChange = (e) => {
-    setDailyData((data) => ({ ...data, [e.target.name]: e.target.value }));
-    console.log(e.target.value);
+    // setDailyData((data) => ({ ...data, [e.target.name]: e.target.value }));
+    // console.log(e.target.value);
   };
 
   return (
