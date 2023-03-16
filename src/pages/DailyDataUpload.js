@@ -1,10 +1,8 @@
-import { useParams } from "react-router-dom";
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
 import { useState, useEffect } from "react";
 
 const DailyDataUpload = () => {
-  let { user } = useParams();
   let [data, setDailyData] = useState({
     date: Date.now(),
   });
@@ -41,26 +39,29 @@ const DailyDataUpload = () => {
                         >
                           AD Plant
                         </label>
-                        <input
+                        <select
                           className="shadow w-full appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           id="plant"
                           type="text"
-                          placeholder="Name of AD plant"
-                        ></input>
+                        >
+                          <option defaultValue>Choose AD plant</option>
+                          <option value="condate">condate</option>
+                        </select>
                       </div>
                     </div>
                     <div className="mt-1">
                       <label
-                        for="countries"
-                        class="block text-gray-700 text-sm font-bold mb-2 text-green-400"
+                        htmlFor="countries"
+                        className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
                       >
                         Process
                       </label>
                       <select
                         id="countries"
-                        class="focus:outline-none focus:shadow-outline bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                        onChange={handleChange}
+                        className="shadow w-full appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       >
-                        <option selected>Choose Process</option>
+                        <option defaultValue>Choose Process</option>
                         <option value="Digester1">Digester1</option>
                         <option value="Digester1">Digester2</option>
                       </select>
@@ -78,7 +79,6 @@ const DailyDataUpload = () => {
                         type="date"
                         name="date"
                         onChange={handleChange}
-                        placeholder="Please enter the name of AD plant"
                       ></input>
                     </div>
                     <div className="mt-1 flex justify-between">
@@ -117,7 +117,7 @@ const DailyDataUpload = () => {
                     </div>
                     <button
                       type="submit"
-                      className="inline-block mt-4 w-full rounded bg-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                      className="inline-block mt-5 w-full rounded bg-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
                       data-te-ripple-init
                       data-te-ripple-color="light"
                     >
@@ -142,12 +142,14 @@ const DailyDataUpload = () => {
                         >
                           AD Plant
                         </label>
-                        <input
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        <select
+                          className="shadow w-full appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                           id="plant"
                           type="text"
-                          placeholder="Name of AD plant"
-                        ></input>
+                        >
+                          <option defaultValue>Choose AD plant</option>
+                          <option value="condate">condate</option>
+                        </select>
                       </div>
                       <div className="w-1/3 justify-center">
                         <label

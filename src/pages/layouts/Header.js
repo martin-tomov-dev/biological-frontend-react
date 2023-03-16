@@ -1,4 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
 const Header = () => {
+  let history = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("user") == "") {
+      console.log(1);
+      history("/login");
+    }
+  }, []);
+
   return (
     <div className="flex items-center bg-slate-50 p-4 fixed w-full">
       <div className="w-1/5 flex">

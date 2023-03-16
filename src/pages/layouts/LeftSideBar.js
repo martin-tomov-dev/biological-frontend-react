@@ -4,7 +4,7 @@ const LeftSideBar = () => {
   return (
     <div
       className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 flex flex-col fixed"
-      style={{ height: "calc(100vh - 116px)", marginTop: "116px" }}
+      style={{ height: "calc(100vh - 98px)", marginTop: "98px" }}
     >
       <ul className="space-y-2">
         <li className="py-2">
@@ -51,8 +51,8 @@ const LeftSideBar = () => {
           </a>
         </li>
         <li className="py-2">
-          <Link
-            to=""
+          <a
+            href="#"
             className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <svg
@@ -80,29 +80,29 @@ const LeftSideBar = () => {
               />
             </svg>
             <span className="flex-1 ml-3 whitespace-nowrap">Add Analysis</span>
-          </Link>
+          </a>
         </li>
         <li className="py-2">
-          <Link
-            to=""
+          <a
+            href="analysis-chart"
             className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
             <img className="w-6 h-6" src="/assets/analysis.png" />
             <span className="flex-1 ml-3 whitespace-nowrap">
               Analysis chart
             </span>
-          </Link>
+          </a>
         </li>
       </ul>
       <ul className="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700 mt-auto">
         <li>
-          <Link
-            to=""
+          <a
+            href="/login"
             className="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
           >
             <img className="w-6 h-6" src="/assets/logout.png" />
             <span className="ml-4">Sign Out</span>
-          </Link>
+          </a>
         </li>
       </ul>
     </div>

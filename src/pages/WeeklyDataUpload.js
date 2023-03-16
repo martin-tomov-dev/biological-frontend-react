@@ -39,12 +39,14 @@ const WeeklyDataUpload = () => {
                       >
                         AD Plant
                       </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      <select
+                        className="shadow w-full appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="plant"
                         type="text"
-                        placeholder="Please enter the name of AD plant"
-                      ></input>
+                      >
+                        <option defaultValue>Choose AD plant</option>
+                        <option value="condate">condate</option>
+                      </select>
                     </div>
                     <div className="w-1/3 justify-center">
                       <label

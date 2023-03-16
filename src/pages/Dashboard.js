@@ -1,6 +1,5 @@
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
-import { useParams } from "react-router-dom";
 
 function Dashboard() {
   return (
