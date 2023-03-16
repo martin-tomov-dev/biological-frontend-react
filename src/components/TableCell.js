@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react";
-
 const TableCell = (props) => {
   return (
     <tbody>

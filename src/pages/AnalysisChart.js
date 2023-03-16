@@ -1,7 +1,6 @@
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
 import TableCell from "../components/TableCell";
-import { useEffect } from "react";
 
 const AnalysisChart = () => {
   let processData = [

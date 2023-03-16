@@ -1,10 +1,8 @@
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
 const WeeklyDataUpload = () => {
-  let { user } = useParams();
   let [date, setDailyData] = useState({
     date: Date.now(),
   });

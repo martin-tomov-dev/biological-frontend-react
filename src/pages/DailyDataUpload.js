@@ -1,6 +1,5 @@
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
-import { useState, useEffect } from "react";
 
 const DailyDataUpload = () => {
   let [data, setDailyData] = useState({
