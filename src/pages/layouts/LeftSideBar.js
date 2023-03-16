@@ -33,7 +33,11 @@ const LeftSideBar = () => {
             href="daily-report"
             className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-            <img className="w-6 h-6" src="/assets/daily-report.png" />
+            <img
+              className="w-6 h-6"
+              src="/assets/daily-report.png"
+              alt="daily report"
+            />
             <span className="flex-1 ml-3 whitespace-nowrap">
               Daily Data Upload
             </span>
@@ -44,7 +48,11 @@ const LeftSideBar = () => {
             href="weekly-report"
             className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-            <img className="w-6 h-6" src="/assets/weekly-report.png" />
+            <img
+              className="w-6 h-6"
+              src="/assets/weekly-report.png"
+              alt="weekly report"
+            />
             <span className="flex-1 ml-3 whitespace-nowrap">
               Weekly Data Upload
             </span>
@@ -87,7 +95,11 @@ const LeftSideBar = () => {
             href="analysis-chart"
             className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
           >
-            <img className="w-6 h-6" src="/assets/analysis.png" />
+            <img
+              className="w-6 h-6"
+              src="/assets/analysis.png"
+              alt="add analysis"
+            />
             <span className="flex-1 ml-3 whitespace-nowrap">
               Analysis chart
             </span>
@@ -100,7 +112,7 @@ const LeftSideBar = () => {
             href="/login"
             className="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
           >
-            <img className="w-6 h-6" src="/assets/logout.png" />
+            <img className="w-6 h-6" src="/assets/logout.png" alt="logout" />
             <span className="ml-4">Sign Out</span>
           </a>
         </li>
