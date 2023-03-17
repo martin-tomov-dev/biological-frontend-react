@@ -9,7 +9,7 @@ const Header = () => {
       console.log(1);
       history("/login");
     }
-  }, []);
+  }, [history]);
 
   return (
     <div className="flex items-center bg-slate-50 p-4 fixed w-full">
