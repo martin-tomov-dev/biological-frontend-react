@@ -104,6 +104,15 @@ const LeftSideBar = () => {
           </a>
         </li>
       </ul>
+      <p className="p-2">
+        userName:{" "}
+        <span className="text-green-600 text-lg">
+          {localStorage.getItem("user")}
+        </span>
+      </p>
+      <p className="p-2">
+        company Name: <span className="text-green-600 text-lg">{"EKOGEA"}</span>
+      </p>
       <ul className="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700 mt-auto">
         <li>
           <a
