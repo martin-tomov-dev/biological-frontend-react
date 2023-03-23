@@ -1,11 +1,25 @@
 import Header from "./layouts/Header";
 import LeftSideBar from "./layouts/LeftSideBar";
+import { useState } from "react";
+import { format } from "date-fns";
 
 const DailyDataUpload = () => {
+  const [dailyData, setDailyData] = useState({
+    date: format(new Date(), "yyyy-MM-dd"),
+  });
+  const [feedstockData, setFeedstockData] = useState({
+    date: format(new Date(), "yyyy-MM-dd"),
+  });
   const handleChange = (e) => {
-    // setDailyData((data) => ({ ...data, [e.target.name]: e.target.value }));
-    // console.log(e.target.value);
+    console.log(dailyData.date);
+
+    setDailyData((data) => ({ ...data, [e.target.name]: e.target.value }));
   };
+
+  const handlefeedstockChange = (e) => {
+    setFeedstockData((data) => ({ ...data, [e.target.name]: e.target.value }));
+  };
+  console.log(dailyData.date);
 
   return (
     <div className="bg-gray-50 dark:bg-gray-800">
@@ -26,7 +40,7 @@ const DailyDataUpload = () => {
                     <h2 className="text-center py-3 text-xl text-green-600">
                       Daily Process Analysis
                     </h2>
-                    <div className="flex justify-between mt-1">
+                    <div className="flex justify-between mt-5">
                       <div className="w-full justify-center">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
@@ -44,7 +58,7 @@ const DailyDataUpload = () => {
                         </select>
                       </div>
                     </div>
-                    <div className="mt-1">
+                    <div className="mt-3">
                       <label
                         htmlFor="countries"
                         className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
@@ -61,7 +75,7 @@ const DailyDataUpload = () => {
                         <option value="Digester1">Digester2</option>
                       </select>
                     </div>
-                    <div className="mt-1">
+                    <div className="mt-3">
                       <label
                         className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
                         htmlFor="date"
@@ -74,9 +88,10 @@ const DailyDataUpload = () => {
                         type="date"
                         name="date"
                         onChange={handleChange}
+                        value={dailyData.date}
                       ></input>
                     </div>
-                    <div className="mt-1 flex justify-between">
+                    <div className="mt-3 flex justify-between">
                       <div className="w-[40%]">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
@@ -112,7 +127,7 @@ const DailyDataUpload = () => {
                     </div>
                     <button
                       type="submit"
-                      className="inline-block mt-5 w-full rounded bg-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                      className="inline-block mt-10 w-full rounded bg-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
                       data-te-ripple-init
                       data-te-ripple-color="light"
                     >
@@ -130,7 +145,7 @@ const DailyDataUpload = () => {
                       Daily Feedstock Analysis
                     </h2>
                     <div className="flex justify-between mt-3">
-                      <div className="Ad-plant w-1/3 justify-center">
+                      <div className="w-1/3 justify-center">
                         <label
                           className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
                           htmlFor="plant"
@@ -158,15 +173,15 @@ const DailyDataUpload = () => {
                           id="date"
                           type="date"
                           name="date"
-                          onChange={handleChange}
-                          placeholder="Please enter the name of AD plant"
+                          onChange={handlefeedstockChange}
+                          value={feedstockData.date}
                         ></input>
                       </div>
                     </div>
                     <div className="flex justify-between mt-3">
                       <div className="w-1/4 justify-center">
                         <label
-                          className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
+                          className="block  text-gray-700 text-sm font-bold mb-2 text-green-400"
                           htmlFor="date"
                         >
                           Daily Fresh Water
@@ -177,7 +192,7 @@ const DailyDataUpload = () => {
                           type="text"
                           name="freshWater"
                           onChange={handleChange}
-                          placeholder="Fresh water"
+                          placeholder="Fresh water(m³)"
                         ></input>
                       </div>
                       <div className="w-1/4 justify-center">
@@ -193,7 +208,7 @@ const DailyDataUpload = () => {
                           type="text"
                           name="greyWater"
                           onChange={handleChange}
-                          placeholder="Grey Water"
+                          placeholder="Grey Water(m³)"
                         ></input>
                       </div>
                       <div className="w-1/4 justify-center">
@@ -209,7 +224,7 @@ const DailyDataUpload = () => {
                           type="text"
                           name="digestate"
                           onChange={handleChange}
-                          placeholder="Re-Circ Digestate"
+                          placeholder="Re-Circ Digestate(m³)"
                         ></input>
                       </div>
                     </div>
@@ -227,7 +242,7 @@ const DailyDataUpload = () => {
                           type="number"
                           name="temperature"
                           onChange={handleChange}
-                          placeholder="Temperature(C)"
+                          placeholder="Temperature(℃)"
                         ></input>
                       </div>
                       <div className="w-1/5 justify-center">
@@ -259,7 +274,7 @@ const DailyDataUpload = () => {
                           type="number"
                           name="H2S"
                           onChange={handleChange}
-                          placeholder="H2S"
+                          placeholder="H2S(PPM)"
                         ></input>
                       </div>
                       <div className="w-1/5 justify-center">
@@ -275,13 +290,61 @@ const DailyDataUpload = () => {
                           type="number"
                           name="biogas"
                           onChange={handleChange}
-                          placeholder="Biogas/hr"
+                          placeholder="Biogas(m³/hr)"
                         ></input>
                       </div>
                     </div>
+                    <div className="text-green-400  font-bold mt-3">
+                      Feedstock
+                    </div>
+                    <div className="w-full flex justify-between ">
+                      <div className="w-1/4 justify-center">
+                        <label
+                          className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
+                          htmlFor="date"
+                        ></label>
+                        <input
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="biogas"
+                          type="number"
+                          name="biogas"
+                          onChange={handleChange}
+                          placeholder="(Tonne)"
+                        ></input>
+                      </div>
+                      <div className="w-1/4 justify-center">
+                        <label
+                          className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
+                          htmlFor="date"
+                        ></label>
+                        <input
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="biogas"
+                          type="number"
+                          name="biogas"
+                          onChange={handleChange}
+                          placeholder="(Tonne)"
+                        ></input>
+                      </div>
+                      <div className="w-1/4 justify-center">
+                        <label
+                          className="block text-gray-700 text-sm font-bold mb-2 text-green-400"
+                          htmlFor="date"
+                        ></label>
+                        <input
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                          id="biogas"
+                          type="number"
+                          name="biogas"
+                          onChange={handleChange}
+                          placeholder="(Tonne)"
+                        ></input>
+                      </div>
+                    </div>
+
                     <button
                       type="submit"
-                      className="inline-block mt-16 w-full rounded bg-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                      className="inline-block mt-10 w-full rounded bg-sky-600 text-white px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
                       data-te-ripple-init
                       data-te-ripple-color="light"
                     >

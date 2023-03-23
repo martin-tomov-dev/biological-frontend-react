@@ -15,6 +15,13 @@ const Login = async (userData) => {
   return response.data;
 };
 
+const Allusers = async () => {
+  const response = await axios.get(`${API_URL}`, config);
+  console.log(response.data);
+  return response.data;
+};
+
 export const authService = {
   Login,
+  Allusers,
 };

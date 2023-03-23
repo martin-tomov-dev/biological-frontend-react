@@ -18,7 +18,7 @@ const LoginPage = () => {
   async function handleSubmit(e) {
     if (userData.name === "admin" && userData.password === "123456") {
       localStorage.setItem("user", userData.name);
-      history("/dashboard");
+      history("/daily-report");
     } else {
       try {
         e.preventDefault();
@@ -26,7 +26,7 @@ const LoginPage = () => {
         await authService.Login(userData).then((res) => {
           console.log(res);
           localStorage.setItem("user", userData.name);
-          history("/dashboard");
+          history("/daily-report");
         });
       } catch (err) {
         // console.error(error);
@@ -37,9 +37,8 @@ const LoginPage = () => {
 
   return (
     <section
-      className="gradient-form h-full"
+      className="gradient-form h-screen"
       style={{
-        height: "100vh",
         backgroundImage: `url("./assets/login-page-background.jpg")`,
       }}
     >
